@@ -33,6 +33,7 @@
 #include <stdarg.h>
 #include <assert.h>
 #include <locale.h>
+#include <unistd.h>
 
 #ifdef WIN32
 #include <io.h>

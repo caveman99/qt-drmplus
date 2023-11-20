@@ -9,5 +9,5 @@ drmplusdemod_CFLAGS = -I$(top_srcdir)/include  -I$(top_srcdir)/src
 drmplusgraph_CFLAGS = -I$(top_srcdir)/include  -I$(top_srcdir)/src
 LDADD = $(top_builddir)/src/libdrmplus.la -lm
 
-drmplusdemod_LDFLAGS = @FFTW3_LDFLAGS@ -lfaad2_drm
-drmplusgraph_LDFLAGS = @FFTW3_LDFLAGS@ -lfaad2_drm
+drmplusdemod_LDFLAGS = @FFTW3_LDFLAGS@ -lfaad
+drmplusgraph_LDFLAGS = @FFTW3_LDFLAGS@ -lfaad

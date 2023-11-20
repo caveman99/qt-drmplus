@@ -156,18 +156,15 @@ typedef struct {
 
 
 /* ROM TABLES */
-//const int8_t pilots[4][14];
-const int16_t phases[40][14];
-
-const int timesync_k[21];
-const int timesync_phi[21];
-
-const uint16_t fac_perm[244*2];
-const uint16_t sdc_perm[936*2];
-const uint16_t msc_perm[7460];
-
-const uint8_t crc8tab[256];
-const uint16_t crc16tab[256];
+//extern const int8_t pilots[4][14];
+extern const int16_t phases[40][14];
+extern const int timesync_k[21];
+extern const int timesync_phi[21];
+extern const uint16_t fac_perm[244*2];
+extern const uint16_t sdc_perm[936*2];
+extern const uint16_t msc_perm[7460];
+extern const uint8_t crc8tab[256];
+extern const uint16_t crc16tab[256];
 
 
 
@@ -194,6 +191,9 @@ void print_bytes(char *bytes, int len);
 double drm_fine_freq_err(fftw_complex * drm_frame,int32_t fine_timeshift);
 int drm_coarse_freq_sync_maxenergy(drmplus_priv_t *p, double *energy);
 int drm_coarse_time_sync(drmplus_priv_t *p, fftw_complex *symbols, int *is_inverted);
+void drm_move_to_base_band(drmplus_priv_t *p, fftw_complex *frame_out);
+int32_t drm_fine_time_sync(fftw_complex * frame, int prev_offset);
+int drm_coarse_freq_sync_4symbols(drmplus_priv_t *p, double *energy);
 
 //sig_proc
 void drm_normalize_correct_phase(fftw_complex * symbols, uint8_t symbol_id);
@@ -230,5 +230,6 @@ int drm_process_msc(iq_val *msc_bits, uint8_t *msc_data, mpx_desc_t *mpx, srv_da
 
 int drm_feed_aac_service(uint8_t *dataA, uint8_t *dataB, mpx_desc_t *mpx, srv_data_t *srv);
 
+int build_permutation(char t, size_t xin, uint16_t *perm);
 
 #endif //_DRMPLUS_INTERNAL_H_

@@ -20,6 +20,8 @@
 #ifndef DRMPLUSDEMOD_H_
 #define DRMPLUSDEMOD_H_
 
+#define _GNU_SOURCE
+
 #include "drmplus.h"
 #include "fac.h"
 

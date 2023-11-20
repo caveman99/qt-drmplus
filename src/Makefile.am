@@ -4,7 +4,7 @@ EXTRA_DIST = libdrmplus.sym
 lib_LTLIBRARIES = libdrmplus.la
 
 libdrmplus_la_CFLAGS = @FFTW3_INCFLAGS@ -I$(top_srcdir)/include
-libdrmplus_la_LDFLAGS = -export-symbols libdrmplus.sym -no-undefined -version-info 1:0:1 @FFTW3_LDFLAGS@ @FFTW3_LIBS@ -lfaad2_drm
+libdrmplus_la_LDFLAGS = -export-symbols libdrmplus.sym -no-undefined -version-info 1:0:1 @FFTW3_LDFLAGS@ @FFTW3_LIBS@ -lfaad
 
 libdrmplusdir = $(includedir)/libdrmplus
 

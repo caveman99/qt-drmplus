@@ -332,7 +332,7 @@ int drmplusAddSamplesDouble(drmplusHandle hp, double *inputBuffer, unsigned int 
 	drm_move_to_base_band(p, &p->frame_in[480]);
 
 	int old_ts = p->siginfo.fine_timeshift;
-	p->siginfo.fine_timeshift=drm_fine_time_sync(&p->frame_in, p->siginfo.sync_state > SYNC_STATE_FTO_TRY ? old_ts : -1);
+	p->siginfo.fine_timeshift=drm_fine_time_sync(&p->frame_in[960], p->siginfo.sync_state > SYNC_STATE_FTO_TRY ? old_ts : -1);
 	if(abs(p->siginfo.fine_timeshift - old_ts) <= 8 ||
 			//NOTE: after coarse frequency sync done, it's possible that this offset can be higher.
 			p->siginfo.sync_state == SYNC_STATE_IFO_TRY) {
